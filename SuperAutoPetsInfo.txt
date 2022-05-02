@@ -1,0 +1,62 @@
+Name,Health,DAttack,Ability 
+Ant,1,2	        Faint: Give a random friend (+2/+1)/(+4/+2)/(+6/+3)
+Beaver,2,2	Sell: Give 2 random friends +1/+2/+3 HP
+Cricket,2,1	Faint: Summon a (1/1)/(2/2)/(3/3) Zombie Cricket
+Duck,3,1	Sell: Give shop pets +1/+2/+3 HP
+Fish,2,3	Level-up: Give all friends (+1/+1)/(+2/+2)
+Horse,1,2	Friend summoned: Give it +1/+2/+3 ATK until the end of battle
+Mosquito,2,2	Start of battle: Deal 1 dmg to 1/2/3 random enemies
+Otter,2,1	Buy: Give a random friend (+1/+1)/(+2/+2)/(+3/+3)
+Pig,1,3	        Sell: Gain 1/2/3 gold
+Sloth,1,1	"Sloth has no special ability. Is kind of lame combat-wise. But he truly believes in you!"
+Crab,3,3	Buy: Copy the Health of the healthiest friend
+Dodo,3,2	Start of battle: Give friend ahead 50%/100%/150% ATK
+Elephant,5,3	Start of battle: Deal 1 damage to 1/2/3 friends behind
+Flamingo,1,3	Faint: Give the two friends behind (+1/+1)/(+2/+2)/(+3/+3)
+Hedgehog,2,3	Faint: Deal 2/4/6 dmg to all
+Peacock,5,2	Hurt: Gain 50% of ATK 1/2/3 times
+Rat,5,4	`	Faint: Summon 1/2/3 1/1 Dirty Rats up front for the opponent
+Shrimp,3,2	Friend sold: Give a random friend +1/+2/+3 HP
+Spider,2,2	Faint: Summon a lvl 1/2/3 tier 3 pet as 2/2
+Swan,3,1	Start of turn: Gain 1/2/3 gold
+Badger,4,5	Faint: Deal 1x/2x/3x ATK to adjacent pets
+Blowfish,5,3	Hurt: Deal 2/4/6 dmg to a random enemy
+Camel,5,2	Hurt: Give friend behind (+1/+2)/(+2/+4)/(+3/+6)
+Dog,2,2		Friend summoned: Gain +1/+2/+3 ATK or HP
+Giraffe,5,2	End turn: Give 1/2/3 friends ahead +1/+1
+Kangaroo,2,1	Friend ahead attacks: Gain (+2/+2)/(+4/+4)/(+6/+6)
+Ox,4,1		Friend ahead faints: Gain Melon Armor and +2/+4/+6 ATK
+Rabbit,2,3	Friend eats shop food: Give it +1/+2/+3 HP
+Sheep,2,2	Faint: Summon two (2/2)/(4/4)/(6/6) Rams
+Snail,2,2	Buy: If you lost last battle, give all friends (+1/+1)/(+2/+2)/(+3/+3)
+Turtle,2,1	Faint: Give 1/2/3 friends behind Melon Armor
+Bison,6,6	End turn: If there's at least one level 3 friend, gain (+2/+2)/(+4/+4)/(+6/+6)
+Deer,1,1	Faint: Summon a (5/5)/(10/10)/(15/15) Bus with Splash Attack
+Dolphin,6,4	Start of battle: Deal 5/10/15 dmg to the lowest health enemy
+Hippo,7,4	Knockout: Gain (+2/+2)/(+4/+4)/(+6/+6)
+Parrot,3,5	End turn: Copy ability from friend ahead as lvl 1/2/3 until the end of battle
+Penguin,2,1	End turn: Give other lvl 2 and 3 friends (+1/+1)/(+2/+2)/(+3/+3)
+Rooster,3,5	Faint: Summon 1/2/3 chicks with 1 HP and half ATK
+Skunk,6,3	Start of battle: Reduce HP of the highest enemy by 33%/66%/99%
+Squirrel,5,2	Start of turn: Discount shop food by 1/2/3 gold
+Whale,8,3	Start of battle: Swallow friend ahead and release it as lvl 1/2/3 after fainting
+Worm,2,2	Eats shop food: Gain (+1/+1)/(+2/+2)/(+3/+3)
+Cow,6,4		Buy: Replace food shop with free milk that gives (+1/+2)/(+2/+4)/(+3/+6)
+Crocodile,4,8	Start of battle: Deal 8/16/24 damage to the last enemy
+Monkey,2,1	End turn: Give right-most friend (+2/+3)/(+4/+6)/(+6/+9)
+Rhino,8,5	Knockout: Deal 4/8/12 dmg to first enemy. Double against Tier 1 pets
+Scorpion,1,1	Summoned: Gain Peanuts
+Seal,8,3	Eats shop food: Give 2 random friends (+1/+1)/(+2/+2)/(+3/+3)
+Shark,4,4	Friend faints: Gain (+2/+1)/(+4/+2)/(+6/+3)
+Turkey,4,3	Friend summoned: Give it (+3/+3)/(+6/+6)/(+9/+9)
+Chicken,2,1	Buy tier 1 pet: Give current and future shop pets (+1/+1)/(+2/+2)/(+3/+3)
+Eagle,5,6	Faint: Summon one lvl 1/2/3 tier 6 pet	
+Boar,6,8	Before attack: Gain (+2/+2)/(+4/+4)/(+6/+6)
+Cat,5,4		Multiplies the HP and ATK effect of food by 2/3/4
+Dragon,8,6	Buy tier 1 pet: Give all pets except itself (+1/+1)/(+2/+2)/(+3/+3)
+Fly,5,5		Friend faints: Summon a (5/5)/(10/10)/(15/15) Zombie Fly in its place (thrice per battle)
+Gorilla,9,6	Hurt: Gain Coconut Shield (1/2/3 times per battle)
+Leopard,4,10	Start of battle: Deal 50% ATK dmg to 1/2/3 random enemies
+Mammoth,10,3	Faint: Give all friends (+2/+2)/(+4/+4)/(+6/+6)
+Snake,6,6	Friend ahead attacks: Deal 5/10/15 damage to a random enemy	
+Tiger,4,3	Friend ahead repeats their ability in battle as if they were level 1/2/3
