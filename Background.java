@@ -12,12 +12,15 @@ public class Background {
 	private HashMap<String, Integer> backgrounds=new HashMap<String, Integer>();
 	/** Arraylist of the owned maps*/
 	private ArrayList<String> owned = new ArrayList<String>();
+	/** The player that is having their background modified */
+	private Player p;
 
 
 	/**
 	 * The constructor for the background class. Initializes the available backgrounds in the game.
 	 */
 	public Background(){
+	
 		backgrounds.put("Grass Field", 0);
 		backgrounds.put("Hot Desert", 5000);
 		backgrounds.put("Lava Mountain", 5000);
@@ -25,6 +28,8 @@ public class Background {
 		backgrounds.put("Underground Cave", 500);
 		backgrounds.put("Snowy Mountain", 500);
 		backgrounds.put("Lava Cave", 1000);
+		p = new Player(10, 10, 0);
+		
 	}
 	
 	/** 
@@ -34,11 +39,11 @@ public class Background {
 	public void buyBackground(String backgroundchoice) {
 		if (backgrounds.containsKey(backgroundchoice)) {
 			int price = backgrounds.get(backgroundchoice);
-			if (Player.points>price) {
+			if (p.getPoints()>price) {
 				owned.add(backgroundchoice);
 				backgrounds.remove(backgroundchoice);
-				Player.points-=price;
-				System.out.println("Points left: "+Player.points);
+				p.setPoints(p.getPoints()-price);
+				System.out.println("Points left: "+p.getPoints());
 			} else {
 				System.out.println("Not enough points");
 			}
@@ -46,6 +51,7 @@ public class Background {
 			System.out.println("Pick a map from the list");
 		}
 	}
+	
 	/**
 	 * Checks the shop of backgrounds with their prices
 	 */
@@ -74,8 +80,6 @@ public class Background {
 	public String getBackground() {
 		return this.currentBackground;
 	}
-
-
 
 
 
