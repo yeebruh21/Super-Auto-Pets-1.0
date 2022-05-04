@@ -32,55 +32,40 @@ public class Background {
 		
 	}
 	
+	
 	/** 
-	 * Buying a background with points. If not enough points or if the shop doesn't have the background, nothing will happen. 
-	 * @param backgroundchoice the background that the user is wishing to buy
+	 * getting the hashmap of backgrounds
+	 * @return All of the backgrounds in the shop
 	 */
-	public void buyBackground(String backgroundchoice) {
-		if (backgrounds.containsKey(backgroundchoice)) {
-			int price = backgrounds.get(backgroundchoice);
-			if (p.getPoints()>price) {
-				owned.add(backgroundchoice);
-				backgrounds.remove(backgroundchoice);
-				p.setPoints(p.getPoints()-price);
-				System.out.println("Points left: "+p.getPoints());
-			} else {
-				System.out.println("Not enough points");
-			}
-		} else {
-			System.out.println("Pick a map from the list");
-		}
+	public HashMap<String, Integer> getBackgrounds() {
+		return this.backgrounds;
 	}
 	
-	/**
-	 * Checks the shop of backgrounds with their prices
-	 */
-	public void checkShop() {
-		System.out.println(backgrounds);
-	}
-
-
-	/**
-	 * changes to a new background that is owned by the user
-	 * @param backgroundChoice the new background the user wants to change to
-	 */
-	public void changeBackground(String backgroundChoice) {
-		if (owned.contains(backgroundChoice)) {
-			this.currentBackground= backgroundChoice;
-			System.out.println("Map changed!");
-		} else {
-			System.out.println("You don't own this background");
-		}
-	}
 	
 	/**
-	 * get the currently equipped background
-	 * @return the current background
+	 * getting the arraylist of owned backgrounds that the user purchased with points
+	 * @return the arraylist of owned backgrounds
 	 */
-	public String getBackground() {
-		return this.currentBackground;
+	public ArrayList<String> getOwnedBackgrounds(){
+		return this.owned;
 	}
-
+	
+	
+	/**
+	 * sets the current background to a new one
+	 */
+	public void setCurrentBackground(String newBackground) {
+		this.currentBackground=newBackground;
+	}
+	
+	
+	/**
+	 * to string method to print out current background and amount of owned backgrounds
+	 * @return the current background and the amount of backgrounds owned.
+	 */
+	public String toString() {
+		return "Current background: "+this.currentBackground + "\nBackgrounds owned: "+this.owned.size();
+	}
 
 
 }
