@@ -10,6 +10,7 @@
 */
 
 import java.io.File;
+import java. util. Arrays;
 import java.io.FileReader;
 import java.io.BufferedReader; 
 import java.io.IOException;
@@ -110,12 +111,14 @@ public class Animal {
       return this.ability;
    }
    
+   
+   
    /**
    read the information of a given animal in an array which includes the attirbutes in the following order 
    name, health, directAttack,level,tier, ability
    */
    
-   public  String[] generateAnimal (File address,String animalName) throws IOException
+   public void  generateAnimal (File address,String animalName) throws IOException
    {
    
      //Create a new filereader which allows the main to call it using the file address containing the animal informations 
@@ -132,12 +135,70 @@ public class Animal {
              int currIndex = 1; //used to count which letter we're at
              String [] words = line.split(","); //spliting the sentence into words and saving it inside an array
              
+             
+             //change the attirbutes of the animal asked for by reading the textfile that contains the info of each animal and finding the line that contains it
+             if (words [0]==animalName){
+             
+               this.name= words[0];
+               //casting the String version of attirbutes saved on the text file into int so it can be manipulated by other classes and methods
+               this.health=Integer.parseInt(words[1]);
+               this.directAttack=Integer.parseInt(words[2]);
+               this.level=Integer.parseInt(words[3]);
+               this.tier=Integer.parseInt(words[4]);
+               
+               this.ability=words[5];
+
+             } 
          }
       
      }
+     //closing the FileReader and bufferedReader
      br.close();
-     fr.close();
-     return null;//here!!!!!!!!!!!!!!!!
-
+     fr.close(); 
+     
     }
+    
+    /**
+    pick  a random level 1 animal from the list of 63 animals in standard package, instead of taking the name of animal from other classes
+    @return a random animal from the list that includes all the animal info
+    */
+    
+   public  void getRandomAnimal (File address)throws IOException
+   
+   {
+     int animalNum = randomNumberGenerator(1, 63);//random number between 1 and 63 (number of animals on the animalinfo.txt ) 
+     //Create a new filereader which allows the main to call it using the file address containing the animal informations 
+     FileReader fr= new FileReader(address);
+     //
+     BufferedReader br= new BufferedReader(fr);
+     //
+     String line;      
+         //first loop, check for all the words inside the sentence
+         for (int i = 0; i <animalNum ; i++) {
+               line= br.readLine();
+               String [] words = line.split(","); //spliting the sentence into words and saving it inside an array
+               //change the attirbutes of the animal asked for by reading the textfile that contains the info of each animal and finding the line that contains it             
+               this.name= words[0];
+               //casting the String version of attirbutes saved on the text file into int so it can be manipulated by other classes and methods
+               this.health=Integer.parseInt(words[1]);
+               this.directAttack=Integer.parseInt(words[2]);
+               this.level=Integer.parseInt(words[3]);
+               this.tier=Integer.parseInt(words[4]);
+               this.ability=words[5];
+             } 
+             //closing the FileReader and bufferedReader
+             br.close();
+             fr.close(); 
+    }
+   
+   /**
+   allows the geneerateRandomAnimal method to choose a random animal based on the # of lines in the database-textFile
+   @returns a randomNum between the indicated range 
+   */
+   public static int randomNumberGenerator(int min, int max)
+	{
+		double r = Math.random();
+		int randomNum = (int)(r * (max - min)) + min;//generate a random # using the random method of math class between the range of min and max
+		return randomNum;
+	}
 }
