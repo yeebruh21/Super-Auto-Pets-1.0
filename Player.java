@@ -9,14 +9,17 @@ public class Player {
 	private int money; 
 	private int trophies;
 	private int points=10000;
-	public static boolean continuegame=true;
-	private Team t = new Team();
+	private static boolean continuegame=true;
+	private Team t;
+	private Background b;
 	
 	
 	public Player(int lives, int money, int trophies) {
 		this.lives=lives;
 		this.money=money;
 		this.trophies=trophies;
+		this.t=new Team();
+		this.b= new Background();
 		
 		
 	}
@@ -39,7 +42,7 @@ public class Player {
 	
 	public void endgame(Player p) {
 		if (this.trophies==10) {
-			//+6 each round if 10 wins. -45+60=+12
+			//+6 each round if 10 wins
 			this.points+=60;
 		} else {
 			//+5 for each normal round
@@ -52,19 +55,43 @@ public class Player {
 		b.battle();
 	}
 	
+	/** 
+	 * Buying a background with points. If not enough points or if the shop doesn't have the background, nothing will happen. 
+	 * @param backgroundchoice the background that the user is wishing to buy
+	 */
 	public void buyBackground(String backgroundchoice) {
-		if (backgrounds.containsKey(backgroundchoice)) {
-			int price = backgrounds.get(backgroundchoice);
-			if (p.getPoints()>price) {
-				owned.add(backgroundchoice);
-				backgrounds.remove(backgroundchoice);
-				p.setPoints(p.getPoints()-price);
-				System.out.println("Points left: "+p.getPoints());
+		if (b.getBackgrounds().containsKey(backgroundchoice)) {
+			int price = b.getBackgrounds().get(backgroundchoice);
+			if (points>price) {
+				b.getOwnedBackgrounds().add(backgroundchoice);
+				b.getBackgrounds().remove(backgroundchoice);
+				points-=price;
+				System.out.println("Points left: "+points);
 			} else {
 				System.out.println("Not enough points");
 			}
 		} else {
 			System.out.println("Pick a map from the list");
+		}
+	}
+	
+	/**
+	 * Checks the shop of backgrounds with their prices
+	 */
+	public void checkBackgroundShop() {
+		System.out.println(b.getBackgrounds());
+	}
+	
+	/**
+	 * changes to a new background that is owned by the user
+	 * @param backgroundChoice the new background the user wants to change to
+	 */
+	public void changeBackground(String backgroundChoice) {
+		if (b.getOwnedBackgrounds().contains(backgroundChoice)) {
+			b.setCurrentBackground(backgroundChoice);
+			System.out.println("Map changed!");
+		} else {
+			System.out.println("You don't own this background");
 		}
 	}
 	
