@@ -160,29 +160,24 @@ public class Animal {
     
     /**
     pick  a random level 1 animal from the list of 63 animals in standard package, instead of taking the name of animal from other classes
+    @return a random animal from the list that includes all the animal info
     */
     
-   public String getRandomAnimal (File address)throws IOException
+   public  void getRandomAnimal (File address)throws IOException
    
    {
-      String animalName="";
-      int animal = randomNumberGenerator(1, 63);//random number between 1 and 63 (number of animals on the animalinfo.txt ) 
+     int animalNum = randomNumberGenerator(1, 63);//random number between 1 and 63 (number of animals on the animalinfo.txt ) 
      //Create a new filereader which allows the main to call it using the file address containing the animal informations 
      FileReader fr= new FileReader(address);
      //
      BufferedReader br= new BufferedReader(fr);
      //
-     String line;
-      
-     while ((line= br.readLine())!=null){
-      
+     String line;      
          //first loop, check for all the words inside the sentence
-         for (int i = 0; i <animal ; i++) {
-         
-             String [] words = line.split(","); //spliting the sentence into words and saving it inside an array
-             //change the attirbutes of the animal asked for by reading the textfile that contains the info of each animal and finding the line that contains it
-             if (words [0]==animalName){
-             
+         for (int i = 0; i <animalNum ; i++) {
+               line= br.readLine();
+               String [] words = line.split(","); //spliting the sentence into words and saving it inside an array
+               //change the attirbutes of the animal asked for by reading the textfile that contains the info of each animal and finding the line that contains it             
                this.name= words[0];
                //casting the String version of attirbutes saved on the text file into int so it can be manipulated by other classes and methods
                this.health=Integer.parseInt(words[1]);
@@ -190,22 +185,15 @@ public class Animal {
                this.level=Integer.parseInt(words[3]);
                this.tier=Integer.parseInt(words[4]);
                this.ability=words[5];
-               animalName=this.name;
-
              } 
-         }
-      
-     }
-     //closing the FileReader and bufferedReader
-     br.close();
-     fr.close(); 
-     
-   
-      return animalName;
-   }
+             //closing the FileReader and bufferedReader
+             br.close();
+             fr.close(); 
+    }
    
    /**
    allows the geneerateRandomAnimal method to choose a random animal based on the # of lines in the database-textFile
+   @returns a randomNum between the indicated range 
    */
    public static int randomNumberGenerator(int min, int max)
 	{
