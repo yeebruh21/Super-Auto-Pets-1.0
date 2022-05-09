@@ -12,8 +12,6 @@ public class Background {
 	private HashMap<String, Integer> backgrounds=new HashMap<String, Integer>();
 	/** Arraylist of the owned maps*/
 	private ArrayList<String> owned = new ArrayList<String>();
-	/** The player that is having their background modified */
-	private Player p;
 
 
 	/**
@@ -28,7 +26,6 @@ public class Background {
 		backgrounds.put("Underground Cave", 500);
 		backgrounds.put("Snowy Mountain", 500);
 		backgrounds.put("Lava Cave", 1000);
-		p = new Player(10, 10, 0);
 		
 	}
 	
