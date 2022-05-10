@@ -1,0 +1,16 @@
+1,Apple,1,Give a Pet +1/+1.	
+1,Honey,2,Give a Pet Honey Bee
+2,Cupcake,3,Give a Pet +3/+3 until end of battle
+2,MeatBone,4,Give a Pet Bone Attack
+2,SleepingPill,5,Make a friendly Pet faint
+3,Garlic,6,Give a Pet Garlic Armor
+3,Salad Bowl,7,Give 2 random Pets +1/+1
+4,Canned Food,8,Give all current and future shop Pets +2/+1
+4,Pear,9,Give a Pet +2/+2
+5,Chili,10,Give a Pet Splash Attack
+5,Chocolate,11,Give a Pet +1 Experience
+5,Sushi,12,Give 3 random Pets +1/+1.
+5,Pepper,13,Give a Pet Peppe.
+6,Mushroom,14,Give a Pet Extra Life.
+6,Pizza,15,Give 2 random Pets +2/+2.
+6,Steak,16,Give a Pet Steak Attack.

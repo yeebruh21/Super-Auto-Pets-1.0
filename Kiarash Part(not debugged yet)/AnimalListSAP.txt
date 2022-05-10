@@ -1,0 +1,10 @@
+Ant,1,2,1,1,1,Faint: Give 1 random (+2/+1)/(+4/+2)/(+6/+3)
+Beaver,2,2,1,1,2,Sell:  Give 2 random friends +1/+2/+3 HP
+Cricket,2,1,1,1,3,Faint: Summon  (1/1)/(2/2)/(3/3) Cricket
+Duck,3,1,1,1,4,Sell: Give shop pets +1/+2/+3 HP
+Fish,2,3,1,1,5,Level-up: Give 5 friends (+1/+1)/(+2/+2)
+Horse,1,2,1,1,6,Friend summoned: Give it +1/+2/+3 ATK until the end of battle
+Mosquito,2,2,1,1,7,Start of battle: Deal 1 dmg to 1/2/3 random enemies
+Otter,2,1,1,1,8,Buy: Give a random friend (+1/+1)/(+2/+2)/(+3/+3)
+Pig,1,3,1,1,9,Sell: Gain 1/2/3 gold
+Sloth,1,1,1,1,10,Sloth has no special ability. Is kind of lame combat-wise. But he truly believes in you!
