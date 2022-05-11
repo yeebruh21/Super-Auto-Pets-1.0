@@ -1,0 +1,217 @@
+None
+normal
+0
+0
+true
+false
+false
+Abandon-Hat
+unique
+0
+0
+false
+false
+true
+Egg Shell Hat
+unique
+0
+0
+false
+false
+true
+Trophy Hat
+unique
+0
+0
+false
+false
+true
+Jester Hat
+unique
+0
+0
+false
+false
+true
+Crown Hat
+unobtainable
+0
+0
+false
+false
+true
+Bowtie Hat
+unobtainable
+0
+0
+false
+false
+true
+Early Adopter Hat
+normal
+0
+3.00
+false
+false
+false
+Top Hat
+normal
+100
+0
+true
+true
+false
+Fedora Hat
+normal
+100
+0
+false
+false
+false
+Flower Hat
+normal
+100
+0
+false
+false
+false
+Pamela Hat
+normal
+100
+0
+false
+false
+false
+Cowboy Hat
+normal
+100
+0
+false
+false
+false
+Winter Hat
+normal
+100
+0
+false
+false
+false
+Baseball Hat
+normal
+100
+0
+false
+false
+false
+Elf Hat
+normal
+100
+0
+false
+false
+false
+Beret Hat
+normal
+100
+0
+false
+false
+false
+Captain Hat
+normal
+200
+0
+false
+false
+false
+Fez Hat
+normal
+200
+0
+false
+false
+false
+Kepi Hat
+normal
+200
+0
+false
+false
+false
+Nurse Hat
+normal
+200
+0
+false
+false
+false
+Bear Hat
+normal
+200
+0
+false
+false
+false
+Old Top Hat
+normal
+200
+0
+false
+false
+false
+Party Hat
+normal
+200
+0
+false
+false
+false
+Pilgrim Hat
+normal
+200
+0
+false
+false
+false
+Uncle Sam Hat
+normal
+200
+0
+false
+false
+false
+Santa Hat
+normal
+200
+0
+false
+false
+false
+Pirate Hat
+normal
+200
+0
+false
+false
+false
+Inventor Hat
+normal
+1000
+0
+false
+false
+false
+Poop Hat
+normal
+2000
+0
+false
+false
+false
+Golden Poop Hat
+normal
+5000
+0
+false
+false
+false
