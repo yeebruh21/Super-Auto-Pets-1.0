@@ -1,27 +1,34 @@
+import java.io.IOException;
+import java.util.Arrays;
+
 /**
  * Name: Shuhan Zhang
  * Date: April 28, 2022
- * Description: Making the player class
+ * Description: Making the player class. The player class has methods that control every action and those methods call on other classes such as Battle, Animal, Shop, Team etc.
  */
 public class Player {
 	
 	private int lives; 
-	private int money; 
+	private int coins; 
 	private int trophies;
+	private String name;
 	private int points=10000;
-	private static boolean continuegame=true;
-	private Team t;
-	private Background b;
+	private Team team;
+	private Background background;
+	private Hat hat;
+	private Shop shop;
 	
 	
-	public Player(int lives, int money, int trophies) {
+	public Player(String name, int lives, int trophies) throws IOException {
+		this.name=name; 
 		this.lives=lives;
-		this.money=money;
+		this.coins=20;
 		this.trophies=trophies;
-		this.t=new Team();
-		this.b= new Background();
-		
-		
+		this.team=new Team();
+		this.background= new Background();
+		this.hat= new Hat();
+		this.shop=new Shop();
+
 	}
 	
 	
@@ -29,18 +36,17 @@ public class Player {
 	public boolean checkStatus() {
 		if (this.lives<=0) {
 			System.out.println("You lose");
-			continuegame=false;
 			return false;
 		}
 		if (this.trophies==10) {
 			System.out.println("You win");
-			continuegame=false;
+			endGame();
 			return false;
 		}
 		return true;
 	}
 	
-	public void endgame(Player p) {
+	public void endGame() {
 		if (this.trophies==10) {
 			//+6 each round if 10 wins
 			this.points+=60;
@@ -50,9 +56,92 @@ public class Player {
 		}
 	}
 	
-	public void battle(Player p1, Player p2, int round) {
+	public void battle(Player p1, Player p2, int round) throws IOException {
 		Battle b = new Battle(p1, p2, round);
-		b.battle();
+		Player winner=b.battle();
+		if (winner.equals(p1)) {
+			b.battleWon(p1);
+			b.battleLost(p2);
+			System.out.println(p1);
+			System.out.println(p2);
+		} else if (winner.equals(p2)) {
+			b.battleWon(p2);
+			b.battleLost(p1);
+			System.out.println(p1);
+			System.out.println(p2);
+		}
+		
+	}
+	
+	public void buyPet(Animal a, int slot) {
+		if (this.coins>3) {
+			if (team.getAnimal(slot)!=null) {
+				sellPet(slot);
+			}
+			for (int i=0; i<5; i++) {
+				//If the object at index i is null, then don't bother checking 
+				if (shop.getAnimalInShop(i)==null) {
+					
+				}else if (shop.getAnimalInShop(i).getName().equals(a.getName())) {
+					shop.removeAnimalFromShop(i);
+					break;
+				}
+			}
+			team.setSlot(a, slot);
+			this.coins-=3;
+			System.out.println("Bought "+a.getName());
+		} else {
+			System.out.println("Not enough coins");
+		}
+	}
+	
+	public void sellPet(int slot) {
+		if (team.getAnimal(slot)!=null) {
+			team.setSlot(null, slot);
+			this.coins++;
+		}
+	}
+	
+	public void newShop(Shop s) {
+		this.shop=s;
+	}
+	
+	public void roll () throws IOException {
+		if (this.coins>=1) {
+			shop.generateAnimalInShop();
+			this.coins--;
+		}
+	}
+	
+	
+	public void freezeAnimal(int slot) {
+		this.shop.setFrozenAnimal(slot);
+		System.out.println("Froze "+this.shop.getAnimalInShop(slot));
+	}
+	public void unfreezeAnimal(int slot) {
+		this.shop.setUnfrozenAnimal(slot);
+		System.out.println("Unfroze "+this.shop.getAnimalInShop(slot));
+	}
+	
+	
+	/**
+	 * Checks the shop of backgrounds with their prices
+	 */
+	public void checkBackgroundShop() {
+		System.out.println(background.getBackgrounds());
+	}
+	
+	/**
+	 * changes to a new background that is owned by the user
+	 * @param backgroundChoice the new background the user wants to change to
+	 */
+	public void changeBackground(String backgroundChoice) {
+		if (background.getOwnedBackgrounds().contains(backgroundChoice)) {
+			background.setCurrentBackground(backgroundChoice);
+			System.out.println("Map changed!");
+		} else {
+			System.out.println("You don't own this background");
+		}
 	}
 	
 	/** 
@@ -60,13 +149,13 @@ public class Player {
 	 * @param backgroundchoice the background that the user is wishing to buy
 	 */
 	public void buyBackground(String backgroundchoice) {
-		if (b.getBackgrounds().containsKey(backgroundchoice)) {
-			int price = b.getBackgrounds().get(backgroundchoice);
-			if (points>price) {
-				b.getOwnedBackgrounds().add(backgroundchoice);
-				b.getBackgrounds().remove(backgroundchoice);
+		if (background.getBackgrounds().containsKey(backgroundchoice)) {
+			int price = background.getBackgrounds().get(backgroundchoice);
+			if (points>=price) {
+				background.getOwnedBackgrounds().add(backgroundchoice);
+				background.getBackgrounds().remove(backgroundchoice);
 				points-=price;
-				System.out.println("Points left: "+points);
+				System.out.println("Bought the background!\nPoints left: "+points);
 			} else {
 				System.out.println("Not enough points");
 			}
@@ -75,34 +164,25 @@ public class Player {
 		}
 	}
 	
-	/**
-	 * Checks the shop of backgrounds with their prices
-	 */
-	public void checkBackgroundShop() {
-		System.out.println(b.getBackgrounds());
-	}
-	
-	/**
-	 * changes to a new background that is owned by the user
-	 * @param backgroundChoice the new background the user wants to change to
-	 */
-	public void changeBackground(String backgroundChoice) {
-		if (b.getOwnedBackgrounds().contains(backgroundChoice)) {
-			b.setCurrentBackground(backgroundChoice);
-			System.out.println("Map changed!");
-		} else {
-			System.out.println("You don't own this background");
+	public void buyHat(Hat h) {
+		if (points>h.getCoinPrice()) {
+			points-=h.getCoinPrice();
+			this.hat=h;
 		}
 	}
 	
 	
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	public int getlives() {
 		return this.lives;
 	}
 	
-	public int getMoney() {
-		return this.money;
+	public int getCoins() {
+		return this.coins;
 	}
 	
 	public int getTrophies() {
@@ -116,8 +196,8 @@ public class Player {
 	public void setLives(int newLives) {
 		this.lives=newLives;
 	}
-	public void setMoney(int newMoney) {
-		this.money=newMoney;
+	public void setCoins(int newCoins) {
+		this.coins=newCoins;
 	}
 	public void setTrophies(int newTrophies) {
 		this.trophies=newTrophies;
@@ -126,7 +206,11 @@ public class Player {
 		this.points=newPoints;
 	}
 	public Team getTeam() {
-		return this.t;
+		return this.team;
+	}
+	
+	public String toString() {
+		return this.name+" has/have "+this.lives+" lives left, and "+this.trophies+" trophies.";
 	}
 
 }
