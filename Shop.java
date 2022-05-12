@@ -14,14 +14,10 @@ public class Shop
 	/** current animals in shop */
 	private Animal [] animalInShop;
 
-	/** current foods in shop */
-	private Food [] foodInShop;
 
 	/** whether a shop animal is frozen or not */
 	private boolean [] frozenAnimalStatus;
 
-	/** wehther a shop food is frozen or not */
-	private boolean [] frozenFoodStatus;
 
 
 	/* Constructor*/
@@ -32,30 +28,10 @@ public class Shop
 	 */
 	public Shop() throws IOException
 	{
-//		int maxAnimalIndex = 0;
-//		int maxFoodIndex = 2;
-//		if (turn<5)
-//		{
-//			maxAnimalIndex = 3;
-//			if (turn<3)
-//			{
-//				maxFoodIndex = 1;
-//			}
-//		}
-//		else if (turn<9)
-//		{
-//			maxAnimalIndex = 4;
-//		}
-//		else
-//		{
-//			maxAnimalIndex = 5;
-//		}
 
 		this.animalInShop = new Animal[5];
 		this.frozenAnimalStatus = new boolean[5];
 
-		this.foodInShop = new Food[2];
-		this.frozenFoodStatus = new boolean[2];
 		generateAnimalInShop();
 	}
 
@@ -71,25 +47,6 @@ public class Shop
 		}
 	}
 
-//	public  void generateFoodInShop ()
-//	{
-//		for (int i=0; i<this.foodInShop.size; i++)
-//		{
-//			if (this.frozenAnimalStatus[i]!=false)
-//			{
-//				this.foodInShop[i]=Food.getRandomFood();
-//			}
-//		}
-//	}
-
-
-//	public void freezeFood (int slot)
-//	{
-//		if (this.animalInShop[slot-1]!=null)
-//		{
-//			this.frozenFoodStatus[slot-1] = true;
-//		}
-//	}
 	public boolean contains(Animal a) {
 		for (Animal aa: this.animalInShop) {
 			if (aa==null) {
@@ -123,6 +80,6 @@ public class Shop
 	}
 	
 	public String toString() {
-		return Arrays.toString(this.animalInShop);
+		return "Current shop: "+ Arrays.toString(this.animalInShop);
 	}
 }
