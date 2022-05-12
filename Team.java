@@ -23,9 +23,9 @@ public class Team
 	/* Constructors*/
 	// Default Constructor 
 	/** 
-	* Name: Team()
-	* Description: default constructor sets the animal count to 0, team name to "The", and teamAnimals to an unfilled array of length 5
-	*/
+	 * Name: Team()
+	 * Description: default constructor sets the animal count to 0, team name to "The", and teamAnimals to an unfilled array of length 5
+	 */
 	public Team()
 	{
 		this.teamName = "The"; // Every team name starts with "The"
@@ -39,35 +39,35 @@ public class Team
 
 
 	/**
-	* Name: getTeamName
-	* Description: gets the team's name
-	* @return - returns a String of team's name
-	*/
+	 * Name: getTeamName
+	 * Description: gets the team's name
+	 * @return - returns a String of team's name
+	 */
 	public String getTeamName() 
 	{
 		return this.teamName;
 	}
 
-   /**
-	* Name: getAnimal
-	* Description: gets the animal in a specific slot
-	* @return - returns an Animal object which is the animal in that slot
-	*/
+	/**
+	 * Name: getAnimal
+	 * Description: gets the animal in a specific slot
+	 * @return - returns an Animal object which is the animal in that slot
+	 */
 	public Animal getAnimal(int slot) 
-   {
+	{
 		return this.teamAnimals[slot];
 	}
-   
-   /**
-	* Name: getTeamArray
-	* Description: gets the array that stores all the animals in team
-	* @return - returns the Animal array which has all the animals in team
-	*/
+
+	/**
+	 * Name: getTeamArray
+	 * Description: gets the array that stores all the animals in team
+	 * @return - returns the Animal array which has all the animals in team
+	 */
 	public Animal[] getTeamArray() 
-   {
+	{
 		return this.teamAnimals;
 	}
-   
+
 
 	/*
    Other Methods
@@ -78,7 +78,7 @@ public class Team
 	 * Description: This method prints the available options for team names. A team name consists 
                   of three words: "The [adj] [noun]". Player has three options for adjectives 
                   and nouns, a total of six words will be printed.
-     * @return String array of the choices for team name
+	 * @return String array of the choices for team name
 	 */
 	public String[] printTeamNameChoices ()
 	{
@@ -156,54 +156,54 @@ public class Team
 		System.out.println("4. " + wordChoices[3]);
 		System.out.println("5. " + wordChoices[4]);
 		System.out.println("6. " + wordChoices[5]);
-		
+
 		// Return the wordChoices array
 		return wordChoices;
 	}
-	
+
 	/**
-	* Name: chooseTeamName
-	* Description: Player chooses their team name from the given three options for adj and noun.
-	* @param wordChoices - the String array named wordChoices created in the printTeamNameChoices
-	*                      method.
-	*/
+	 * Name: chooseTeamName
+	 * Description: Player chooses their team name from the given three options for adj and noun.
+	 * @param wordChoices - the String array named wordChoices created in the printTeamNameChoices
+	 *                      method.
+	 */
 	public void chooseTeamName(String[] wordChoices)
 	{
 		// Variable Declaration and Scanner creation
 		String [] teamNameArray = new String [3];
 		int adjChoice, nounChoice; 
 		Scanner sc = new Scanner(System.in);
-      
-      // This try catch block lets the player choose their team name
-      try
-      {
-         // User enters a number between 1 to 3 for their adj. Keep prompting the user if number is invalid.
-         do
-         {
-            System.out.println("Enter a number 1, 2, or 3 for your adjective: ");
-            adjChoice = sc.nextInt();
-         } while (adjChoice!=1 && adjChoice!=2 && adjChoice!=3);
-         
-         teamNameArray[0] = "The"; // Every team name starts with the word "The"
-         
-         // Get the corresponding element (adj) from the wordChoices array and fills the word in the teamName array
-         teamNameArray[1] = wordChoices[adjChoice-1];
-         
-         // User enters a number between 4 to 6 for their noun. Keep prompting the user if number is invalid.
-         do
-         {
-            System.out.println("Enter a number 4, 5, or 6 for your noun: ");
-            nounChoice = sc.nextInt();
-         } while (nounChoice!=4 && nounChoice!=5 && nounChoice!=6);
-      
-         // Get the corresponding element (noun) from the wordChoices array and fills the word in the teamName array
-         teamNameArray[2] = wordChoices[nounChoice-1];
-      }
-      catch (InputMismatchException e)
-      {
-         System.out.println("Input Mismatch Exception: " + e);
-      }
-		
+
+		// This try catch block lets the player choose their team name
+		try
+		{
+			// User enters a number between 1 to 3 for their adj. Keep prompting the user if number is invalid.
+			do
+			{
+				System.out.println("Enter a number 1, 2, or 3 for your adjective: ");
+				adjChoice = sc.nextInt();
+			} while (adjChoice!=1 && adjChoice!=2 && adjChoice!=3);
+
+			teamNameArray[0] = "The"; // Every team name starts with the word "The"
+
+			// Get the corresponding element (adj) from the wordChoices array and fills the word in the teamName array
+			teamNameArray[1] = wordChoices[adjChoice-1];
+
+			// User enters a number between 4 to 6 for their noun. Keep prompting the user if number is invalid.
+			do
+			{
+				System.out.println("Enter a number 4, 5, or 6 for your noun: ");
+				nounChoice = sc.nextInt();
+			} while (nounChoice!=4 && nounChoice!=5 && nounChoice!=6);
+
+			// Get the corresponding element (noun) from the wordChoices array and fills the word in the teamName array
+			teamNameArray[2] = wordChoices[nounChoice-1];
+		}
+		catch (InputMismatchException e)
+		{
+			System.out.println("Input Mismatch Exception: " + e);
+		}
+
 		// Print the team name
 		System.out.println("Your team name is: ");
 		System.out.println(teamNameArray[0] + teamNameArray[1] + " " + teamNameArray[2]);
@@ -212,67 +212,67 @@ public class Team
 		this.teamName = (teamNameArray[0]+" "+teamNameArray[1]+" "+teamNameArray[2]);
 	}
 
-   /**
-	* Name: setTeamArray
-	* Description: gets the array that stores all the animals in team
-   * @param newTeam: a new team of animals
-	*/
+	/**
+	 * Name: setTeamArray
+	 * Description: gets the array that stores all the animals in team
+	 * @param newTeam: a new team of animals
+	 */
 	public void setTeamArray(Animal[] newTeam) 
-   {
-		this.teamAnimals=newTeam;
+	{
+		this.teamAnimals=newTeam.clone();
 	}
 
 	/**
-	* Name: setSlot
-	* Description: Sets the slot where the animal is put in
-	* @param a: the animal which should be put in a slot
-   * @param slot: the slot which the animal is put in
-	*/
+	 * Name: setSlot
+	 * Description: Sets the slot where the animal is put in
+	 * @param a: the animal which should be put in a slot
+	 * @param slot: the slot which the animal is put in
+	 */
 	public void setSlot(Animal a, int slot) 
-   {
+	{
 		this.teamAnimals[slot]=a;
 	}
-   
-   /**
-	* Name: animalCount
-	* Description: counts the number of a specific animal in the team
-	* @param a: the animal being counted
-   * @return - an integer value of the number of animal a
-	*/
+
+	/**
+	 * Name: animalCount
+	 * Description: counts the number of a specific animal in the team
+	 * @param a: the animal being counted
+	 * @return - an integer value of the number of animal a
+	 */
 	public int animalCount(Animal a) 
-   {	
+	{	
 		int count=0;
 		for (Animal aa:this.teamAnimals) 
-      {
+		{
 			if (aa.getName().equals(a.getName()))
-         {
+			{
 				count++;
 			}
 		}
 		return count;
 	}
-	
-   /**
-	* Name: exchangePositions
-	* Description: swap positions of two animals in team
-	* @param slot1: the slot where the first animal is in
-   * @param slot2: the slot where the second animal is in
-	*/
+
+	/**
+	 * Name: exchangePositions
+	 * Description: swap positions of two animals in team
+	 * @param slot1: the slot where the first animal is in
+	 * @param slot2: the slot where the second animal is in
+	 */
 	public void exchangePositions(int slot1, int slot2) 
-   {
+	{
 		Animal temp= this.teamAnimals[slot1];
 		this.teamAnimals[slot1]=this.teamAnimals[slot2];
 		this.teamAnimals[slot2]=temp;
 	}
-   
+
 	/**
-	* Name: toString
-	* Description: return all the attributes of the team
-	* @return - returns a String:  the animal count, hearts left, trophy number, team name, and the animals on team
-	*/
+	 * Name: toString
+	 * Description: return all the attributes of the team
+	 * @return - returns a String:  the animal count, hearts left, trophy number, team name, and the animals on team
+	 */
 	public String toString() 
-   {
-		return "Animals on team currently: "+this.teamAnimals[0]+" "+this.teamAnimals[1]+" "+this.teamAnimals[2]+" "+this.teamAnimals[3]+" "+this.teamAnimals[4];
+	{
+		return "Animals on team currently:\n"+this.teamAnimals[0]+"\n"+this.teamAnimals[1]+"\n"+this.teamAnimals[2]+"\n"+this.teamAnimals[3]+"\n"+this.teamAnimals[4];
 	}
 
 }
